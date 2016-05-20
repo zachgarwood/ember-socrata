@@ -6,7 +6,7 @@ export default DS.Adapter.extend({
   findRecord(store, type, id) {
     let adapter = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer('data.cityofchicago.org');
+      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
       let modelId = `${type.modelName}_id`;
       let data = {};
       data[modelId] = id;
@@ -27,7 +27,7 @@ export default DS.Adapter.extend({
   findAll() {
     let adapter = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer('data.cityofchicago.org');
+      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
       consumer
         .query()
         .withDataset(adapter.get('dataset'))
@@ -44,7 +44,7 @@ export default DS.Adapter.extend({
   query(store, type, query) {
     let adapter = this;
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer('data.cityofchicago.org');
+      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
       consumer
         .query()
         .withDataset(adapter.get('dataset'))
