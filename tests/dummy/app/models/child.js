@@ -4,5 +4,5 @@ import { belongsTo } from 'ember-data/relationships';
 
 export default Model.extend({
   name: attr(),
-  parent_id: belongsTo('parent'),
+  parent: belongsTo('parent', { async: true }),
 });

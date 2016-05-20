@@ -1,0 +1,5 @@
+<ol>
+  {{#each model as |parent|}}
+      <li>{{#link-to 'parent' parent}}{{parent.name}}{{/link-to}}</li>
+  {{/each}}
+</ol>
