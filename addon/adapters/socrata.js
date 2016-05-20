@@ -5,11 +5,11 @@ import Soda from 'npm:soda-js';
 export default DS.Adapter.extend({
   findRecord(store, type, id) {
     let adapter = this;
+    let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
+    let modelId = `${type.modelName}_id`;
+    let data = {};
+    data[modelId] = id;
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
-      let modelId = `${type.modelName}_id`;
-      let data = {};
-      data[modelId] = id;
       consumer
         .query()
         .withDataset(adapter.get('dataset'))
@@ -26,12 +26,11 @@ export default DS.Adapter.extend({
   },
   findAll() {
     let adapter = this;
+    let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
       consumer
         .query()
         .withDataset(adapter.get('dataset'))
-        .limit()
         .getRows()
         .on('success', function(data) {
           Ember.run(null, resolve, data);
@@ -43,13 +42,12 @@ export default DS.Adapter.extend({
   },
   query(store, type, query) {
     let adapter = this;
+    let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
       consumer
         .query()
         .withDataset(adapter.get('dataset'))
         .where(query)
-        .limit()
         .getRows()
         .on('success', function(data) {
           Ember.run(null, resolve, data);
