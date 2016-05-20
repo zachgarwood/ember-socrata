@@ -5,31 +5,27 @@ export default function() {
   this.urlPrefix = ENV.socrata.dataRepo;
   this.namespace = 'resource';
 
-  // companies
+  // parent 
   this.get('/abcd-1234.json', function(db, request) {
-    let results = [];
-    if ('$where' in request.queryParams) {
-      let query = request.queryParams['$where'].split(' = ');
-      results = this._queryForItems(db.company, query);
-    } else {
-      results = db.company;
-    }
-
-    return results;
+    return this._getResults(db.parent, request.queryParams);
   });
 
-  // employees
+  // child 
   this.get('/wxyz-7890.json', function(db, request) {
+    return this._getResults(db.child, request.queryParams);
+  });
+
+  this._getResults = function(collection, queryParams) {
     let results = [];
-    if ('$where' in request.queryParams) {
-      let query = request.queryParams['$where'].split(' = ');
-      results = this._queryForItems(db.employee, query);
+    if ('$where' in queryParams) {
+      let query = queryParams['$where'].split(' = ');
+      results = this._queryForItems(collection, query);
     } else {
-      results = db.employee;
+      results = collection;
     }
 
     return results;
-  });
+  };
 
   this._queryForItems = function(collection, query) {
     let results = [];
