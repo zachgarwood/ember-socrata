@@ -16,3 +16,8 @@ test('api consumer methods are defined', function(assert) {
     );
   });
 });
+
+test('default serializer is set', function(assert) {
+  let adapter = this.subject();
+  assert.equal('socrata', adapter.defaultSerializer, 'The default serializer is set to "socrata"');
+});

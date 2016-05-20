@@ -3,6 +3,7 @@ import Ember from 'ember';
 import Soda from 'npm:soda-js';
 
 export default DS.Adapter.extend({
+  defaultSerializer: 'socrata',
   findRecord(store, type, id) {
     let adapter = this;
     let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
