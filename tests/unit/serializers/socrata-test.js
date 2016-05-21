@@ -13,7 +13,7 @@ moduleFor('serializer:application', 'Unit | Serializer | socrata', {
 test('id is extracted', function(assert) {
   let serializer = this.subject();
   server.db.createCollection('test');
-  let resource = server.db['test'].insert({
+  let resource = server.db.test.insert({
     id: 'incorrect', 
     'model-name-id': 'incorrect',
     ModelNameId: 'incorrect',
@@ -30,7 +30,7 @@ test('id is extracted', function(assert) {
 test('attributes are extracted', function(assert) {
   let serializer = this.subject();
   server.db.createCollection('test');
-  let resource = server.db['test'].insert({
+  let resource = server.db.test.insert({
     model_name_id: 'model_name_id',
     ends_with_id: 'ends_with_id',
     underscore_attribute: 'underscoreAttribute',
