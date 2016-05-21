@@ -1,8 +1,8 @@
-import DS from 'ember-data';
+import Adapter from 'ember-data/adapter';
 import Ember from 'ember';
 import Soda from 'npm:soda-js';
 
-export default DS.Adapter.extend({
+export default Adapter.extend({
   defaultSerializer: 'socrata',
   findRecord(store, type, id) {
     let adapter = this;
