@@ -1,12 +1,18 @@
 Ember-Socrata
 =============
-An adapter for interacting with Socrata open data services.
+[![Build Status](https://travis-ci.org/zachgarwood/ember-socrata.svg?branch=master)](https://travis-ci.org/zachgarwood/ember-socrata) [![Ember Observer Score](https://emberobserver.com/badges/ember-socrata.svg)](https://emberobserver.com/addons/ember-socrata)
+-----
+An adapter and serializer for interacting with Socrata open data services.
 
 Currently, Ember-Socrata only handles Socrata's Consumer API, ie. retrieving data.
 
 # Installation
+Ember-Socrata relies on Soda-JS to communicate with Socrata data repositories,
+as well as Ember-Browserify to make Soda-JS available to the Ember application.
 ```bash
 ember install ember-socrata
+ember install ember-browserify
+npm install soda-js
 ```
 
 # Configuration
@@ -28,7 +34,7 @@ adapter:
 ```bash
 ember generate model something
 ember generate adapter something
-``` 
+```
 
 ## Models
 In the model you should define attributes as normal, using camelCasedAttributes
