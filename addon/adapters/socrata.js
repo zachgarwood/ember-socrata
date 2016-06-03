@@ -45,10 +45,43 @@ export default Adapter.extend({
     let adapter = this;
     let consumer = new Soda.Consumer(adapter.get('config.dataRepo'));
     return new Ember.RSVP.Promise(function(resolve, reject) {
-      consumer
-        .query()
-        .withDataset(adapter.get('dataset'))
-        .where(query)
+      let queryBuilder = consumer.query().withDataset(adapter.get('dataset'));
+
+      if ('soql' in query || 'query' in query) {
+        let soql = query['soql'] || query['query'];
+        queryBuilder.query(soql);
+      }
+
+      if ('where' in query) {
+        let where = query['where'];
+        if (where instanceof Array) {
+          queryBuilder.where(...where);
+        } else {
+          queryBuilder.where(where);
+        }
+      }
+
+      if ('limit' in query) {
+        queryBuilder.limit(query['limit']);
+      }
+
+      if ('offset' in query) {
+        queryBuilder.offset(query['offset']);
+      }
+
+      if ('order' in query) {
+        queryBuilder.order(...query['order']);
+      }
+
+      if ('select' in query) {
+        queryBuilder.order(...query['select']);
+      }
+
+      if ('q' in query) {
+        queryBuilder.q(query['q']);
+      }
+
+      queryBuilder
         .getRows()
         .on('success', function(data) {
           Ember.run(null, resolve, data);
