@@ -1,13 +1,25 @@
 Ember-Socrata
 =============
-[![Build Status](https://travis-ci.org/zachgarwood/ember-socrata.svg?branch=master)](https://travis-ci.org/zachgarwood/ember-socrata) [![Ember Observer Score](https://emberobserver.com/badges/ember-socrata.svg)](https://emberobserver.com/addons/ember-socrata)
+[![NPM Version][npm-badge]][npm]
+[![Ember Badge][ember-badge]][embadge]
+[![Build Status][travis-badge]][travis]
+[![Ember Observer Score][ember-observer-badge]][ember-observer]
+
+[npm]: https://www.npmjs.org/package/ember-socrata
+[npm-badge]: https://img.shields.io/npm/v/ember-socrata.svg
+[embadge]: http://embadge.io/
+[ember-badge]: http://embadge.io/v1/badge.svg?start=1.13.13
+[travis]: https://travis-ci.org/zachgarwood/ember-socrata
+[travis-badge]: https://travis-ci.org/zachgarwood/ember-socrata.svg?branch=master
+[ember-observer]: https://emberobserver.com/addons/ember-socrata
+[ember-observer-badge]: https://emberobserver.com/badges/ember-socrata.svg
 -----
 An adapter and serializer for interacting with Socrata open data services.
 
-Currently, Ember-Socrata only handles Socrata's Consumer API, ie. retrieving data.
+Currently, Ember-Socrata only handles [Socrata](https://dev.socrata.com/)'s Consumer API, ie. retrieving data.
 
 # Installation
-Ember-Socrata relies on Soda-JS to communicate with Socrata data repositories,
+Ember-Socrata relies on [Soda-JS](https://github.com/socrata/soda-js) to communicate with Socrata data repositories,
 as well as Ember-Browserify to make Soda-JS available to the Ember application.
 ```bash
 ember install ember-socrata
