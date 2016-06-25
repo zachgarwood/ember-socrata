@@ -13,8 +13,8 @@ export default JSONSerializer.extend({
     if (validIds.length > 0) {
       return resourceHash[validIds.shift()];
     } else {
-      Ember.Logger.error(
-        `Error: Could not determine an id for the '${modelClass.modelName}' model. ` +
+      throw new Error(
+        `Could not determine an id for the '${modelClass.modelName}' model. ` +
         `Try setting a 'primaryKey' in the '${modelClass.modelName}' serializer.`
       );
     }
