@@ -3,7 +3,21 @@ import JSONSerializer from 'ember-data/serializers/json';
 
 export default JSONSerializer.extend({
   extractId(modelClass, resourceHash) {
-    return resourceHash[`${Ember.String.underscore(modelClass.modelName)}_id`];
+    let possibleIds = [
+      this.get('primaryKey'),
+      `${Ember.String.underscore(modelClass.modelName)}_id`
+    ];
+    let validIds = possibleIds.filter(function(id) {
+      return resourceHash.hasOwnProperty(id);
+    });
+    if (validIds.length > 0) {
+      return resourceHash[validIds.shift()];
+    } else {
+      Ember.Logger.error(
+        `Error: Could not determine an id for the '${modelClass.modelName}' model. ` +
+        `Try setting a 'primaryKey' in the '${modelClass.modelName}' serializer.`
+      );
+    }
   },
   extractAttributes(modelClass, resourceHash) {
     this._camelizeAttributes(modelClass, resourceHash); 
