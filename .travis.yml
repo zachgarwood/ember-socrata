@@ -1,8 +1,11 @@
 ---
 language: node_js
 node_js:
+  - "0.10"
   - "0.12"
-  - "4.4"
+  - "4"
+  - "5"
+  - "6"
 
 sudo: true 
 
@@ -11,7 +14,6 @@ cache:
     - node_modules
 
 env:
-  - EMBER_TRY_SCENARIO=default
   - EMBER_TRY_SCENARIO=ember-1.13
   - EMBER_TRY_SCENARIO=ember-lts
   - EMBER_TRY_SCENARIO=ember-release
