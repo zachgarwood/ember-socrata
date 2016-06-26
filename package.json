@@ -1,6 +1,6 @@
 {
   "name": "ember-socrata",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An adapter for interacting with Socrata open data services.",
   "directories": {
     "doc": "doc",
