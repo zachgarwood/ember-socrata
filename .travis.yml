@@ -41,3 +41,7 @@ install:
 
 script:
   - ember try:one $EMBER_TRY_SCENARIO test
+
+branches:
+  only:
+    - master
