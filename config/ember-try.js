@@ -1,5 +1,6 @@
 /*jshint node:true*/
 module.exports = {
+  command: 'ember exam --split 4 --parallel',
   scenarios: [
     {
       name: 'default',
