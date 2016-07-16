@@ -34,12 +34,12 @@ export default function() {
   this.namespace = 'resource';
 
   // parent 
-  this.get('/abcd-1234.json', function(db, request) {
+  this.get('/abcd-1234.json', function({ db }, request) {
     return _getResults(db.parents, request.queryParams);
   });
 
   // child 
-  this.get('/wxyz-7890.json', function(db, request) {
+  this.get('/wxyz-7890.json', function({ db }, request) {
     return _getResults(db.children, request.queryParams);
   });
 }
