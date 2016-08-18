@@ -15,7 +15,7 @@ Ember-Socrata
 [ember-observer]: https://emberobserver.com/addons/ember-socrata
 [ember-observer-badge]: https://emberobserver.com/badges/ember-socrata.svg
 [version-eye]: https://www.versioneye.com/user/projects/57525f907757a00034dc4150
-[version-eye-badge]: https://www.versioneye.com/user/projects/57525f907757a00034dc4150/badge.svg?style=flat-square
+[version-eye-badge]: https://www.versioneye.com/user/projects/57525f907757a00034dc4150/badge.svg
 -----
 An adapter and serializer for interacting with Socrata open data services.
 
