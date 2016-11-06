@@ -13,7 +13,7 @@
   },
   "repository": "https://github.com/zachgarwood/ember-socrata",
   "engines": {
-    "node": ">= 4"
+    "node": ">= 0.12"
   },
   "author": "Zach Garwood <zachgarwood@gmail.com> (http://zachgarwood.com)",
   "license": "MIT",
