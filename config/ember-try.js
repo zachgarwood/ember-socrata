@@ -22,12 +22,12 @@ module.exports = {
       name: 'ember-lts',
       bower: {
         dependencies: {
-          'ember': 'components/ember#2.4'
+          'ember': 'components/ember#2.8'
         }
       },
       npm: {
         devDependencies: {
-          'ember-data': '~2.4.0'
+          'ember-data': '~2.8.0'
         }
       }
     },
