@@ -9,7 +9,7 @@ Ember-Socrata
 [npm]: https://www.npmjs.org/package/ember-socrata
 [npm-badge]: https://img.shields.io/npm/v/ember-socrata.svg
 [embadge]: http://embadge.io/
-[ember-badge]: http://embadge.io/v1/badge.svg?start=1.13.13
+[ember-badge]: http://embadge.io/v1/badge.svg?start=2.8.0
 [travis]: https://travis-ci.org/zachgarwood/ember-socrata
 [travis-badge]: https://travis-ci.org/zachgarwood/ember-socrata.svg?branch=master
 [ember-observer]: https://emberobserver.com/addons/ember-socrata
@@ -33,7 +33,7 @@ npm install soda-js
 # Configuration
 In your project's `config/environment.js`:
 
-```javascript 
+```javascript
 module.exports = function(environment) {
   var ENV = {
     socrata: { dataRepo: 'some.data-repository.com' },
