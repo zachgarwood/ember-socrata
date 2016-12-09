@@ -9,16 +9,6 @@ module.exports = {
       }
     },
     {
-      name: 'ember-1.13',
-      bower: {
-        dependencies: {
-          'ember': 'components/ember#1.13',
-          'ember-cli-shims': '0.0.6',
-          'ember-data': 'components/ember-data#1.13'
-        }
-      }
-    },
-    {
       name: 'ember-lts',
       bower: {
         dependencies: {

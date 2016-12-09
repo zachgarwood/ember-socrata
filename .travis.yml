@@ -6,15 +6,14 @@ node_js:
   - "6"
   - "7"
 
-sudo: true 
+sudo: true
 
 cache:
   directories:
-    - bower_components
-    - node_modules
+    - $HOME/.npm
+    - $HOME/.cache # includes bowers cache
 
 env:
-  - EMBER_TRY_SCENARIO=ember-1.13
   - EMBER_TRY_SCENARIO=ember-lts
   - EMBER_TRY_SCENARIO=ember-release
   - EMBER_TRY_SCENARIO=ember-beta
@@ -27,20 +26,21 @@ matrix:
     - env: EMBER_TRY_SCENARIO=ember-canary
 
 before_install:
+  - npm config set spin false
+  - npm install -g bower
+  - bower --version
   - wget https://s3.amazonaws.com/travis-phantomjs/phantomjs-2.0.0-ubuntu-12.04.tar.bz2
   - tar -xjf phantomjs-2.0.0-ubuntu-12.04.tar.bz2
   - sudo rm -rf /usr/local/phantomjs/bin/phantomjs
   - sudo mv phantomjs /usr/local/phantomjs/bin/phantomjs
-  - "npm config set spin false"
-  - "npm install -g npm@^2"
+  - /usr/local/phantomjs/bin/phantomjs --version
 
 install:
-  - npm install -g bower
   - npm install
   - bower install
 
 script:
-  - ember try:one $EMBER_TRY_SCENARIO test
+  - ember try:one $EMBER_TRY_SCENARIO test --skip-cleanup
 
 branches:
   only:
