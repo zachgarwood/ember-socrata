@@ -74,7 +74,11 @@ export default Adapter.extend({
       }
 
       if ('select' in query) {
-        queryBuilder.order(...query['select']);
+        queryBuilder.select(...query['select']);
+      }
+
+      if ('group' in query) {
+        queryBuilder.group(...query['group']);
       }
 
       if ('q' in query) {
