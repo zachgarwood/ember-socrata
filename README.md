@@ -1,6 +1,8 @@
 Ember-Socrata
 =============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/zachgarwood/ember-socrata.svg)](https://greenkeeper.io/)
+
 [![NPM Version][npm-badge]][npm]
 [![Ember Badge][ember-badge]][embadge]
 [![Build Status][travis-badge]][travis]
