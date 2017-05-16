@@ -1,7 +1,6 @@
 ---
 language: node_js
 node_js:
-  - "4"
   - "6"
   - "7"
 
@@ -43,3 +42,4 @@ script:
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
