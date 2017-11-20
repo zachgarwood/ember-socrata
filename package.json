@@ -50,7 +50,7 @@
   ],
   "dependencies": {
     "ember-browserify": "^1.1.9",
-    "ember-cli-babel": "^6.0.0",
+    "ember-cli-babel": "^6.10.0",
     "soda-js": "^0.2.2"
   },
   "ember-addon": {
